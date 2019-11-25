@@ -7,7 +7,9 @@ import random
 
 
 class IDMDataGenerator():
-    """Intelligent Driver Model (IDM) controller.
+    """Generates a dataset based on Intelligent Driver Model (IDM).
+
+    Input variables (gap, speed, lead speed) are randomly generated
 
     Attributes
     ----------
