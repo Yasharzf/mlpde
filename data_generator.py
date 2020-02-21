@@ -3,10 +3,9 @@
 """
 import numpy as np
 import pandas as pd
-import random
 
 
-class IDMDataGenerator():
+class IDMDataGenerator:
     """Generates a dataset based on Intelligent Driver Model (IDM).
 
     Input variables (gap, speed, lead speed) are randomly generated
@@ -32,7 +31,7 @@ class IDMDataGenerator():
     """
 
     def __init__(self,
-                 sample_size=1e6,
+                 sample_size=3000000,
                  v0=30,
                  T=1,
                  a=1,
@@ -94,11 +93,11 @@ class IDMDataGenerator():
             speed of the leading vehicle in m/s
         """
         #a random value for gap in the range of [self.s0, 50]
-        s = random.uniform(self.s0, 50)
+        s = np.random.uniform(low=self.s0, high=50)
         # a random value for velocity in the range of [0,35]
-        v = random.uniform(0, 35)
+        v = np.random.uniform(low=0.1, high=35)
         # a random value for leading vehicle velocity in the range of [0,35]
-        lead_v = random.uniform(0, 35)
+        lead_v = np.random.uniform(low=0.1, high=30)
 
         return s, v, lead_v
 
@@ -124,5 +123,6 @@ class IDMDataGenerator():
 
 
 if __name__ == '__main__':
-    generator = IDMDataGenerator(sample_size=3000000)
+    sample_size = 3000000
+    generator = IDMDataGenerator(sample_size=sample_size)
     generator.generate_data()
